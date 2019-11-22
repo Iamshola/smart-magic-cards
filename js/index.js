@@ -1,13 +1,15 @@
-const suit = 'hearts';
 const cardsWrapper = document.querySelector('.cards-wrapper');
 const buttonWrapper = document.querySelector('.btn-wrapper');
-const buttons = ['Magic', 'Show/Hide', 'Shuffle'];
+
 const startButton = document.getElementById('start-game');
+
+const buttons = ['Magic', 'Show/Hide', 'Shuffle'];
 const suits = ['hearts', 'spades', 'diamonds', 'clubs'];
 
-const cards = [];
+let cards;
 
 function createCards() {
+  cards = [];
   // Create an array with objects containing the value and the suit of each card
   suits.forEach((indivdualSuit) => {
     for (let i = 1; i <= 13; i += 1) {
@@ -19,10 +21,12 @@ function createCards() {
       cards.push(cardObject);
     }
   });
+}
 
-  // For each dataObject, create a new card and append it to the DOM
-  cards.forEach((card, i) => {
-    const positionFromLeft = i * 25;
+// For each dataObject, create a new card and append it to the DOM
+function displayCards(arrayOfCreatedCards) {
+  arrayOfCreatedCards.forEach((card, i) => {
+    const positionFromLeft = i * 28;
     const cardElement = document.createElement('div');
     cardElement.setAttribute('data-value', card.value);
     cardElement.classList.add('card', `${card.suit}-${card.value}`);
@@ -31,16 +35,58 @@ function createCards() {
   });
 }
 
+function handleShowButton() {
+  if (!cardsWrapper.classList.contains('hidden')) {
+    cardsWrapper.classList.add('hidden');
+  } else {
+    cardsWrapper.classList.remove('hidden');
+  }
+}
+
+
+function emptyAllCards() {
+  const cardsWrapperEmpty = document.querySelector('.cards-wrapper');
+
+  while (cardsWrapperEmpty.firstChild) {
+    cardsWrapperEmpty.firstChild.remove();
+  }
+}
+
+function handleMagicButton() {
+  emptyAllCards();
+  cards = [];
+  createCards();
+  displayCards(cards);
+}
+
+
+function handleShuffleButton() {
+  emptyAllCards();
+  const shuffleArray = cards.sort(() => Math.random() - 0.5);
+  displayCards(shuffleArray);
+}
+
 // Function to clear out the initial button and create new buttons to play the game.
 function createButtons() {
   // Your Code
   startButton.remove();
 
-  buttons.forEach((indivdualSuit) => {
+  buttons.forEach((indivdualButton) => {
     const button = document.createElement('div');
     button.classList.add('btn', 'btn-lg', 'btn-secondary');
-    button.innerHTML = `${indivdualSuit}`;
+    button.innerHTML = `${indivdualButton}`;
+
     buttonWrapper.appendChild(button);
+
+    if (button.innerHTML === 'Magic') {
+      button.addEventListener('click', handleMagicButton);
+    }
+    if (button.innerHTML === 'Show/Hide') {
+      button.addEventListener('click', handleShowButton);
+    }
+    if (button.innerHTML === 'Shuffle') {
+      button.addEventListener('click', handleShuffleButton);
+    }
   });
 }
 
@@ -49,6 +95,7 @@ function createButtons() {
 function startGame() {
   createButtons();
   createCards();
+  displayCards(cards);
 }
 
-document.getElementById('start-game').addEventListener('click', startGame);
+startButton.addEventListener('click', startGame);

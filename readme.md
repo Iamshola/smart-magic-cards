@@ -1,3 +1,36 @@
+# Project Approach 
+
+### Planning 
+Once I had completed my set up, I spent some time trying to fully understand the requirements for the project. My approach of execution was as follows: 
+- Installed all the dependiences as instructed in the Readme 
+- Read through the index.js and index.html and tried to understand what the classes were responsible for and whether I had to take any of this into consideration. 
+- Identified places where arrays and array methods could be used to prevent duplication of code
+- Identified places where I could re use and re work some of the already exisiting code. 
+- Implement small pieces of code and tested in browser
+- Ran some of the test in Cypress test suite. 
+
+
+### Technologies Used
+- HTML5
+- CSS3
+- JavaScript (ES6)
+- cypress(used to run tests)
+
+
+### Wins 
+
+- Identifying how to make my code efficent quite quickly 
+- Exposure to the Cypress test suite and making all of the tests pass.
+- Reading th Cypress documentation and writing some of my own tests.  
+
+
+### Blockers 
+- Not being able to complete all of the bonus tasks within the allocated time. 
+
+
+
+
+
 # Smart Magic Cards
 Join Smart by performing a simple magic trick.
 
