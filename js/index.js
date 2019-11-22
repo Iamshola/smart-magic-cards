@@ -1,8 +1,8 @@
 const suit = 'hearts';
 const cardsWrapper = document.querySelector('.cards-wrapper');
 
+const cards = [];
 function createCards() {
-  const cards = [];
   // Create an array with objects containing the value and the suit of each card
   for (let i = 1; i <= 13; i += 1) {
     const cardObject = {
