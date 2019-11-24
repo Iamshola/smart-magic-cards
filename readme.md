@@ -22,7 +22,7 @@ Once I had completed my set up, I spent some time trying to fully understand the
 ### Wins 
 
 - Identifying how to make my code efficent.
-- Exposure to the Cypress test suite, making all of the tests pass and reading additional function to execute the task. 
+- Exposure to the Cypress test suite, making all of the tests pass. 
 - Reading the Cypress documentation and writing some of my own tests.  
 - Completed some of the bonus tasks.
 
