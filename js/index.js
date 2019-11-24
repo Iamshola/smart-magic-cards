@@ -8,9 +8,9 @@ const suits = ['hearts', 'spades', 'diamonds', 'clubs'];
 
 let cards;
 
+// Create an array with objects containing the value and the suit of each card
 function createCards() {
   cards = [];
-  // Create an array with objects containing the value and the suit of each card
   suits.forEach((indivdualSuit) => {
     for (let i = 1; i <= 13; i += 1) {
       const cardObject = {
@@ -35,6 +35,8 @@ function displayCards(arrayOfCreatedCards) {
   });
 }
 
+// Function to handle the show and hide function required.
+
 function handleShowButton() {
   if (!cardsWrapper.classList.contains('hidden')) {
     cardsWrapper.classList.add('hidden');
@@ -43,7 +45,7 @@ function handleShowButton() {
   }
 }
 
-
+// Function used to remove all the Nodelist children which will be used to shuffle and reorder
 function emptyAllCards() {
   const cardsWrapperEmpty = document.querySelector('.cards-wrapper');
 
@@ -52,6 +54,8 @@ function emptyAllCards() {
   }
 }
 
+// Function used order all the cards
+
 function handleMagicButton() {
   emptyAllCards();
   cards = [];
@@ -59,6 +63,8 @@ function handleMagicButton() {
   displayCards(cards);
 }
 
+// function used to handle shuffle which uses the array method sort
+// and a shuffle calculation found online
 
 function handleShuffleButton() {
   emptyAllCards();
@@ -67,10 +73,12 @@ function handleShuffleButton() {
 }
 
 // Function to clear out the initial button and create new buttons to play the game.
+
 function createButtons() {
-  // Your Code
+  // Inbuilt  Dom method which removes objects from the page
   startButton.remove();
 
+  //  Creation of buttons using the forEach array methods
   buttons.forEach((indivdualButton) => {
     const button = document.createElement('div');
     button.classList.add('btn', 'btn-lg', 'btn-secondary');
