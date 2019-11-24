@@ -16,7 +16,7 @@ Once I had completed my set up, I spent some time trying to fully understand the
 - HTML5
 - CSS3
 - JavaScript (ES6)
-- cypress(used to run tests)
+- Cypress(testing)
 
 
 ### Wins 
